@@ -3,6 +3,7 @@
 
 import math
 
+
 def floor(n: float) -> int:
     """function takes in two floats"""
 
