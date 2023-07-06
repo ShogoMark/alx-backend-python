@@ -3,8 +3,9 @@
 
 import typing
 
+
 def sum_list(input_list: typing.List[float]) -> float:
-    """function takes in two floats"""
+    """function takes in list of floats"""
 
     sum_float = 0.0
     for lists in input_list:
