@@ -10,9 +10,9 @@ from typing import Any, Dict, Mapping, Sequence
 class TestAccessNestedMap(unittest.TestCase):
     """inherits from unittest.TestCase"""
     @parameterized.expand([
-        (nested_map == {"a": 1}, path == ("a"), res == 1),
-        (nested_map == {"a": {"b": 2}}, path == ("a"), res == KeyError(a)),
-        (nested_map == {"a": {"b": 2}}, path == ("a", "b"), res == 2),
+        (nested_map={"a": 1}, path=("a"), res=1),
+        (nested_map={"a": {"b": 2}}, path=("a"), res=KeyError(a)),
+        (nested_map={"a": {"b": 2}}, path=("a", "b"), res=2),
     ])
     def test_access_nested_map(
                               self,
