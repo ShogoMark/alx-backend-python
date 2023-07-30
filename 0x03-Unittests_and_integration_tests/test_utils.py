@@ -40,13 +40,17 @@ class TestAccessNestedMap(unittest.TestCase):
         else:
             self.fail("Expected KeyError not raised.")
 
+
 class TestGetJson(unittest.TestCase):
+    """Class inherits from Testcase"""
 
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
     ])
-    def test_get_json(self, test_url, test_payload):
+    def test_get_json(self, test_url: str,
+                      test_payload: Dict[str, Any]) -> None:
+        """function takes in test_url and test_payload as args"""
         mock_response = Mock()
         mock_response.json.return_value = test_payload
 
@@ -57,6 +61,7 @@ class TestGetJson(unittest.TestCase):
 
             self.assertEqual(result, test_payload)
             mock_get_json.assert_called_once_with(test_url)
+
 
 if __name__ == '__main__':
     unittest.main()
