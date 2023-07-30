@@ -30,11 +30,11 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map_exception(
                                         self, nested_map: Mapping,
                                         *path_elements: Sequence,
-                                        _ex: Type[Exception])
+                                        expected_exception: Type[Exception])
     """function that checks exceptions"""
         try:
             access_nested_map(nested_map, path_elements)
         except KeyError as e:
-            self.assertEqual(str(e), str(_ex))
+            self.assertEqual(str(e), str(expected_exception))
         else:
             self.fail("Expected KeyError not raised.")
