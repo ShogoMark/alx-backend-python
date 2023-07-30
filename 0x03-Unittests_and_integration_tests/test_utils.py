@@ -4,7 +4,7 @@
 import unittest
 import pytest
 from parameterized import parameterized
-from typing import Any, Dict, Mapping, Sequence
+from typing import Any, Dict, Mapping, Sequence, Type
 from utils import access_nested_map
 import requests
 
@@ -32,9 +32,9 @@ class TestAccessNestedMap(unittest.TestCase):
                                         *path_elements: Sequence,
                                         _ex: Type[Exception])
     """function that checks exceptions"""
-    try:
-        access_nested_map(nested_map, path_elements)
-    except KeyError as e:
-        self.assertEqual(str(e), str(_ex))
+        try:
+            access_nested_map(nested_map, path_elements)
+        except KeyError as e:
+            self.assertEqual(str(e), str(_ex))
         else:
             self.fail("Expected KeyError not raised.")
